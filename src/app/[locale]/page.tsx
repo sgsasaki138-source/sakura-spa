@@ -1,0 +1,274 @@
+'use client'
+
+import { useTranslations, useLocale } from 'next-intl'
+import { useState } from 'react'
+import { Link } from '@/i18n/navigation'
+import { routing } from '@/i18n/routing'
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
+import { db } from '@/lib/firebase'
+
+const LOCALE_LABELS: Record<string, string> = {
+  ja: '日本語',
+  en: 'EN',
+  zh: '简体',
+  'zh-TW': '繁體',
+  ko: '한국어',
+}
+
+export default function HomePage() {
+  const t = useTranslations()
+  const locale = useLocale()
+  const [form, setForm] = useState({ name: '', phone: '', date: '', course: '', message: '' })
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  const serviceItems = t.raw('service.items') as { name: string; desc: string }[]
+  const plans = t.raw('price.plans') as { min: string; price: string }[]
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setStatus('sending')
+    try {
+      await addDoc(collection(db, 'contacts'), {
+        ...form,
+        locale,
+        createdAt: serverTimestamp(),
+      })
+      setStatus('success')
+      setForm({ name: '', phone: '', date: '', course: '', message: '' })
+    } catch {
+      setStatus('error')
+    }
+  }
+
+  return (
+    <div className="min-h-screen bg-stone-950 text-stone-100 font-sans">
+      {/* Header */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-stone-950/90 backdrop-blur border-b border-stone-800">
+        <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+          <div className="text-xl font-bold tracking-widest text-rose-300">SAKURA SPA</div>
+          <nav className="hidden md:flex items-center gap-6 text-sm text-stone-300">
+            <a href="#service" className="hover:text-rose-300 transition-colors">{t('nav.service')}</a>
+            <a href="#price" className="hover:text-rose-300 transition-colors">{t('nav.price')}</a>
+            <a href="#access" className="hover:text-rose-300 transition-colors">{t('nav.access')}</a>
+            <a href="#contact" className="hover:text-rose-300 transition-colors">{t('nav.contact')}</a>
+            <a href="#contact" className="bg-rose-600 hover:bg-rose-500 text-white px-4 py-1.5 rounded-full transition-colors">{t('nav.reserve')}</a>
+          </nav>
+          {/* Language switcher */}
+          <div className="hidden md:flex items-center gap-1 ml-4">
+            {routing.locales.map((l) => (
+              <Link key={l} href="/" locale={l}
+                className={`text-xs px-2 py-1 rounded transition-colors ${locale === l ? 'text-rose-300 font-bold' : 'text-stone-500 hover:text-stone-300'}`}>
+                {LOCALE_LABELS[l]}
+              </Link>
+            ))}
+          </div>
+          {/* Mobile menu button */}
+          <button className="md:hidden text-stone-300" onClick={() => setMenuOpen(!menuOpen)}>
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {menuOpen
+                ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              }
+            </svg>
+          </button>
+        </div>
+        {/* Mobile menu */}
+        {menuOpen && (
+          <div className="md:hidden bg-stone-900 border-t border-stone-800 px-4 py-4 flex flex-col gap-4">
+            {['service', 'price', 'access', 'contact'].map((key) => (
+              <a key={key} href={`#${key}`} onClick={() => setMenuOpen(false)}
+                className="text-stone-300 hover:text-rose-300 transition-colors">
+                {t(`nav.${key}`)}
+              </a>
+            ))}
+            <a href="#contact" onClick={() => setMenuOpen(false)}
+              className="bg-rose-600 text-white text-center px-4 py-2 rounded-full">
+              {t('nav.reserve')}
+            </a>
+            <div className="flex gap-2 flex-wrap">
+              {routing.locales.map((l) => (
+                <Link key={l} href="/" locale={l}
+                  className={`text-xs px-2 py-1 rounded border ${locale === l ? 'border-rose-400 text-rose-300' : 'border-stone-700 text-stone-500'}`}>
+                  {LOCALE_LABELS[l]}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+      </header>
+
+      {/* Hero */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-stone-950 via-rose-950/30 to-stone-950" />
+        <div className="absolute inset-0 opacity-10"
+          style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, #f43f5e 0%, transparent 70%)' }} />
+        <div className="relative z-10 text-center px-4 max-w-2xl mx-auto">
+          <p className="text-rose-300 text-sm tracking-[0.3em] uppercase mb-6">{t('hero.tag')}</p>
+          <h1 className="text-6xl md:text-8xl font-thin tracking-[0.2em] text-white mb-2">{t('hero.title')}</h1>
+          <p className="text-stone-400 tracking-widest text-lg mb-10">{t('hero.subtitle')}</p>
+          <p className="text-2xl md:text-3xl font-light text-stone-200 mb-6 whitespace-pre-line leading-relaxed">
+            {t('hero.catch')}
+          </p>
+          <p className="text-stone-400 mb-10 leading-relaxed">{t('hero.desc')}</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#contact"
+              className="bg-rose-600 hover:bg-rose-500 text-white px-8 py-3 rounded-full text-lg transition-all hover:shadow-lg hover:shadow-rose-900">
+              {t('hero.cta')}
+            </a>
+            <a href="tel:0000000000"
+              className="border border-stone-600 hover:border-rose-400 text-stone-300 hover:text-rose-300 px-8 py-3 rounded-full text-lg transition-all">
+              {t('hero.tel')}
+            </a>
+          </div>
+        </div>
+        {/* Scroll indicator */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+          <svg className="w-6 h-6 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+      </section>
+
+      {/* Service */}
+      <section id="service" className="py-24 px-4 bg-stone-900">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-rose-400 text-sm tracking-widest uppercase mb-2">{t('service.subtitle')}</p>
+            <h2 className="text-3xl font-light tracking-widest text-white">{t('service.title')}</h2>
+            <div className="w-12 h-px bg-rose-500 mx-auto mt-4" />
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {serviceItems.map((item, i) => (
+              <div key={i} className="bg-stone-800/50 border border-stone-700 rounded-2xl p-8 hover:border-rose-800 transition-colors">
+                <div className="w-12 h-12 rounded-full bg-rose-900/50 flex items-center justify-center mb-6">
+                  <span className="text-rose-300 text-xl">✦</span>
+                </div>
+                <h3 className="text-xl font-light text-white mb-3">{item.name}</h3>
+                <p className="text-stone-400 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Price */}
+      <section id="price" className="py-24 px-4 bg-stone-950">
+        <div className="max-w-2xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-rose-400 text-sm tracking-widest uppercase mb-2">{t('price.subtitle')}</p>
+            <h2 className="text-3xl font-light tracking-widest text-white">{t('price.title')}</h2>
+            <div className="w-12 h-px bg-rose-500 mx-auto mt-4" />
+          </div>
+          <div className="border border-stone-700 rounded-2xl overflow-hidden">
+            {plans.map((plan, i) => (
+              <div key={i} className={`flex justify-between items-center px-8 py-5 ${i < plans.length - 1 ? 'border-b border-stone-800' : ''} hover:bg-stone-800/30 transition-colors`}>
+                <span className="text-stone-300 text-lg">{plan.min}</span>
+                <span className="text-rose-300 text-2xl font-light">{plan.price}</span>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-sm text-stone-500">
+            <span>{t('price.note')}</span>
+            <span className="text-rose-400">💳 {t('price.card')}</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Access */}
+      <section id="access" className="py-24 px-4 bg-stone-900">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-rose-400 text-sm tracking-widest uppercase mb-2">{t('access.subtitle')}</p>
+            <h2 className="text-3xl font-light tracking-widest text-white">{t('access.title')}</h2>
+            <div className="w-12 h-px bg-rose-500 mx-auto mt-4" />
+          </div>
+          <div className="bg-stone-800/50 border border-stone-700 rounded-2xl p-8 space-y-6">
+            <div className="flex gap-4">
+              <div className="w-10 h-10 rounded-full bg-rose-900/50 flex items-center justify-center shrink-0">
+                <span className="text-rose-300">📍</span>
+              </div>
+              <div>
+                <p className="text-stone-300">{t('access.area')}</p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="w-10 h-10 rounded-full bg-rose-900/50 flex items-center justify-center shrink-0">
+                <span className="text-rose-300">🚗</span>
+              </div>
+              <div>
+                <p className="text-stone-300">{t('access.type')}</p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="w-10 h-10 rounded-full bg-rose-900/50 flex items-center justify-center shrink-0">
+                <span className="text-rose-300">🕐</span>
+              </div>
+              <div>
+                <p className="text-stone-300">{t('access.hours')}</p>
+              </div>
+            </div>
+            <p className="text-stone-500 text-sm pt-2 border-t border-stone-700">{t('access.note')}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="py-24 px-4 bg-stone-950">
+        <div className="max-w-2xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-rose-400 text-sm tracking-widest uppercase mb-2">{t('contact.subtitle')}</p>
+            <h2 className="text-3xl font-light tracking-widest text-white">{t('contact.title')}</h2>
+            <div className="w-12 h-px bg-rose-500 mx-auto mt-4" />
+          </div>
+
+          {/* Phone CTA */}
+          <div className="mb-8 text-center">
+            <a href="tel:0000000000"
+              className="inline-block bg-rose-600 hover:bg-rose-500 text-white px-10 py-4 rounded-full text-lg transition-all hover:shadow-lg hover:shadow-rose-900">
+              📞 {t('contact.tel')}
+            </a>
+          </div>
+
+          <div className="text-center text-stone-600 mb-8">— {t('contact.form')} —</div>
+
+          {/* Form */}
+          {status === 'success' ? (
+            <div className="text-center text-rose-300 py-8">{t('contact.success')}</div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-4">
+              {(['name', 'phone', 'date', 'course'] as const).map((field) => (
+                <input key={field}
+                  type="text"
+                  placeholder={t(`contact.${field}`)}
+                  value={form[field]}
+                  onChange={(e) => setForm({ ...form, [field]: e.target.value })}
+                  className="w-full bg-stone-800 border border-stone-700 rounded-xl px-4 py-3 text-stone-200 placeholder-stone-600 focus:outline-none focus:border-rose-600 transition-colors"
+                />
+              ))}
+              <textarea
+                placeholder={t('contact.message')}
+                rows={4}
+                value={form.message}
+                onChange={(e) => setForm({ ...form, message: e.target.value })}
+                className="w-full bg-stone-800 border border-stone-700 rounded-xl px-4 py-3 text-stone-200 placeholder-stone-600 focus:outline-none focus:border-rose-600 transition-colors resize-none"
+              />
+              {status === 'error' && (
+                <p className="text-red-400 text-sm">{t('contact.error')}</p>
+              )}
+              <button type="submit" disabled={status === 'sending'}
+                className="w-full bg-rose-600 hover:bg-rose-500 disabled:opacity-50 text-white py-3 rounded-xl transition-colors">
+                {status === 'sending' ? t('contact.sending') : t('contact.send')}
+              </button>
+            </form>
+          )}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-8 border-t border-stone-800 text-center text-stone-600 text-sm">
+        <p>{t('footer.copy')}</p>
+      </footer>
+    </div>
+  )
+}

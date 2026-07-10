@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "title": "SAKURA SPA Nipponbashi | 大阪日本桥 上门男士水疗",
+    "description": "大阪日本桥上门男士水疗服务。完全预约制，专业治疗师直接上门到您的酒店或住所。"
+  },
+  "nav": {
+    "service": "服务项目",
+    "price": "价格",
+    "access": "交通",
+    "contact": "预约咨询",
+    "reserve": "立即预约"
+  },
+  "hero": {
+    "tag": "大阪日本桥 · 上门男士水疗",
+    "title": "SAKURA SPA",
+    "subtitle": "Nipponbashi",
+    "catch": "远离喧嚣，\n尽享极致放松。",
+    "desc": "完全预约制，专业治疗师直接上门到您的酒店或住所，为您提供私密而奢华的放松体验。",
+    "cta": "立即预约",
+    "tel": "电话预约"
+  },
+  "service": {
+    "title": "服务项目",
+    "subtitle": "Service",
+    "items": [
+      { "name": "全身护理套餐", "desc": "覆盖全身的极致放松标准套餐。" },
+      { "name": "尊享套餐", "desc": "融合芳香疗法与专业技术的特别疗愈体验。" },
+      { "name": "头皮水疗套餐", "desc": "细致护理头皮、颈部和肩部的清爽套餐。" }
+    ]
+  },
+  "price": {
+    "title": "价格",
+    "subtitle": "Price",
+    "note": "※ 所有价格含税",
+    "card": "支持信用卡付款",
+    "plans": [
+      { "min": "60分钟", "price": "¥15,000" },
+      { "min": "90分钟", "price": "¥20,000" },
+      { "min": "120分钟", "price": "¥26,000" },
+      { "min": "150分钟", "price": "¥32,000" },
+      { "min": "180分钟", "price": "¥37,000" }
+    ]
+  },
+  "access": {
+    "title": "交通",
+    "subtitle": "Access",
+    "area": "大阪市浪速区·中央区（日本桥地区）",
+    "type": "上门服务（直接到您的酒店或住所）",
+    "hours": "营业时间：12:00 ～ 次日3:00",
+    "note": "※ 我们提供大阪地区全区域上门服务"
+  },
+  "contact": {
+    "title": "预约与咨询",
+    "subtitle": "Contact",
+    "tel": "电话/LINE预约",
+    "form": "发送邮件",
+    "name": "姓名",
+    "phone": "电话号码",
+    "date": "希望预约日期",
+    "course": "希望选择套餐",
+    "message": "备注/问题",
+    "send": "发送",
+    "sending": "发送中...",
+    "success": "已收到您的咨询，我们将尽快与您联系。",
+    "error": "发送失败，请通过电话与我们联系。"
+  },
+  "footer": {
+    "copy": "© 2025 SAKURA SPA Nipponbashi. All rights reserved."
+  }
+}

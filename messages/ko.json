@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "title": "SAKURA SPA Nipponbashi | 오사카 닛폰바시 방문 남성 스파",
+    "description": "오사카 닛폰바시 방문형 남성 스파. 완전 예약제로 숙련된 테라피스트가 호텔 또는 숙소로 직접 방문합니다."
+  },
+  "nav": {
+    "service": "서비스",
+    "price": "요금",
+    "access": "오시는 길",
+    "contact": "문의",
+    "reserve": "예약하기"
+  },
+  "hero": {
+    "tag": "오사카 닛폰바시 · 방문형 남성 스파",
+    "title": "SAKURA SPA",
+    "subtitle": "Nipponbashi",
+    "catch": "일상에서 벗어나\n최고의 힐링을 경험하세요.",
+    "desc": "완전 예약제로 운영되며, 숙련된 테라피스트가 호텔 또는 숙소로 직접 방문해 프라이빗한 럭셔리 릴렉세이션을 제공합니다.",
+    "cta": "지금 예약",
+    "tel": "전화로 예약"
+  },
+  "service": {
+    "title": "서비스",
+    "subtitle": "Service",
+    "items": [
+      { "name": "풀바디 코스", "desc": "전신을 꼼꼼하게 케어하는 최고의 릴렉세이션 스탠다드 코스." },
+      { "name": "프리미엄 코스", "desc": "아로마테라피와 전문 기술을 결합한 특별한 테라피 체험." },
+      { "name": "헤드 스파 코스", "desc": "두피부터 목·어깨까지 세심하게 케어하는 리프레시 코스." }
+    ]
+  },
+  "price": {
+    "title": "요금",
+    "subtitle": "Price",
+    "note": "※ 모든 요금은 세금 포함입니다",
+    "card": "카드 결제 가능",
+    "plans": [
+      { "min": "60분", "price": "¥15,000" },
+      { "min": "90분", "price": "¥20,000" },
+      { "min": "120분", "price": "¥26,000" },
+      { "min": "150분", "price": "¥32,000" },
+      { "min": "180분", "price": "¥37,000" }
+    ]
+  },
+  "access": {
+    "title": "오시는 길",
+    "subtitle": "Access",
+    "area": "오사카시 나니와구·주오구 (닛폰바시 지역)",
+    "type": "방문형 서비스 (호텔 또는 숙소로 직접 방문)",
+    "hours": "영업시간: 12:00 ~ 익일 03:00",
+    "note": "※ 오사카 전 지역 방문 서비스 제공"
+  },
+  "contact": {
+    "title": "예약 및 문의",
+    "subtitle": "Contact",
+    "tel": "전화/LINE으로 예약",
+    "form": "이메일로 문의",
+    "name": "이름",
+    "phone": "전화번호",
+    "date": "희망 날짜 및 시간",
+    "course": "희망 코스",
+    "message": "요청사항 / 질문",
+    "send": "보내기",
+    "sending": "전송 중...",
+    "success": "문의가 접수되었습니다. 담당자가 곧 연락드리겠습니다.",
+    "error": "전송에 실패했습니다. 전화로 문의해 주세요."
+  },
+  "footer": {
+    "copy": "© 2025 SAKURA SPA Nipponbashi. All rights reserved."
+  }
+}

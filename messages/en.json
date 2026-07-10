@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "title": "SAKURA SPA Nipponbashi | Osaka Men's Relaxation Spa",
+    "description": "Private mobile men's relaxation spa in Osaka Nipponbashi. By appointment only. Our experienced therapists come to your hotel or home."
+  },
+  "nav": {
+    "service": "Services",
+    "price": "Pricing",
+    "access": "Access",
+    "contact": "Contact",
+    "reserve": "Book Now"
+  },
+  "hero": {
+    "tag": "Osaka Nipponbashi · Mobile Men's Spa",
+    "title": "SAKURA SPA",
+    "subtitle": "Nipponbashi",
+    "catch": "Escape the ordinary.\nIndulge in pure bliss.",
+    "desc": "By appointment only. Our skilled therapists come to your hotel or home, offering a completely private and luxurious relaxation experience.",
+    "cta": "Book Now",
+    "tel": "Call to Book"
+  },
+  "service": {
+    "title": "Services",
+    "subtitle": "Service",
+    "items": [
+      { "name": "Full Body Course", "desc": "The ultimate relaxation course covering every inch of your body." },
+      { "name": "Premium Course", "desc": "A special therapy experience blending aromatherapy and expert technique." },
+      { "name": "Head Spa Course", "desc": "A refreshing course caring for your scalp, neck, and shoulders." }
+    ]
+  },
+  "price": {
+    "title": "Pricing",
+    "subtitle": "Price",
+    "note": "* All prices include tax",
+    "card": "Credit cards accepted",
+    "plans": [
+      { "min": "60 min", "price": "¥15,000" },
+      { "min": "90 min", "price": "¥20,000" },
+      { "min": "120 min", "price": "¥26,000" },
+      { "min": "150 min", "price": "¥32,000" },
+      { "min": "180 min", "price": "¥37,000" }
+    ]
+  },
+  "access": {
+    "title": "Access",
+    "subtitle": "Access",
+    "area": "Naniwa & Chuo Ward, Osaka (Nipponbashi area)",
+    "type": "Mobile service — we come to your hotel or home",
+    "hours": "Hours: 12:00 PM – 3:00 AM",
+    "note": "* We travel to your location anywhere in the Osaka area"
+  },
+  "contact": {
+    "title": "Reservations & Inquiries",
+    "subtitle": "Contact",
+    "tel": "Book by Phone / LINE",
+    "form": "Send an Email",
+    "name": "Name",
+    "phone": "Phone Number",
+    "date": "Preferred Date & Time",
+    "course": "Preferred Course",
+    "message": "Message / Requests",
+    "send": "Send",
+    "sending": "Sending...",
+    "success": "Thank you! We will contact you shortly.",
+    "error": "Failed to send. Please contact us by phone."
+  },
+  "footer": {
+    "copy": "© 2025 SAKURA SPA Nipponbashi. All rights reserved."
+  }
+}
