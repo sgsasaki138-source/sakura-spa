@@ -6,9 +6,26 @@
   "nav": {
     "service": "サービス",
     "price": "料金",
+    "cast": "セラピスト",
+    "schedule": "出勤表",
     "access": "アクセス",
     "contact": "お問い合わせ",
     "reserve": "LINE予約"
+  },
+  "cast": {
+    "title": "セラピスト",
+    "subtitle": "Cast",
+    "age": "歳",
+    "empty": "ただいま準備中です。もうしばらくお待ちください。",
+    "book": "このセラピストをLINEで予約",
+    "back": "セラピスト一覧に戻る"
+  },
+  "schedule": {
+    "title": "出勤表",
+    "subtitle": "Schedule",
+    "today": "本日",
+    "noneDay": "この日の出勤情報はまだありません",
+    "statusTbd": "要確認"
   },
   "hero": {
     "tag": "大阪・日本橋 出張メンズエステ",

@@ -6,9 +6,26 @@
   "nav": {
     "service": "服务项目",
     "price": "价格",
+    "cast": "按摩师",
+    "schedule": "出勤表",
     "access": "交通",
     "contact": "预约咨询",
     "reserve": "LINE预约"
+  },
+  "cast": {
+    "title": "按摩师",
+    "subtitle": "Cast",
+    "age": "岁",
+    "empty": "正在准备中，敬请期待。",
+    "book": "通过LINE预约这位按摩师",
+    "back": "返回按摩师列表"
+  },
+  "schedule": {
+    "title": "出勤表",
+    "subtitle": "Schedule",
+    "today": "今天",
+    "noneDay": "该日期暂无出勤信息",
+    "statusTbd": "待确认"
   },
   "hero": {
     "tag": "大阪日本桥 · 上门男士水疗",

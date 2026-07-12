@@ -6,9 +6,26 @@
   "nav": {
     "service": "服務項目",
     "price": "價格",
+    "cast": "按摩師",
+    "schedule": "出勤表",
     "access": "交通",
     "contact": "預約諮詢",
     "reserve": "LINE預約"
+  },
+  "cast": {
+    "title": "按摩師",
+    "subtitle": "Cast",
+    "age": "歲",
+    "empty": "正在準備中，敬請期待。",
+    "book": "透過LINE預約這位按摩師",
+    "back": "返回按摩師列表"
+  },
+  "schedule": {
+    "title": "出勤表",
+    "subtitle": "Schedule",
+    "today": "今天",
+    "noneDay": "該日期暫無出勤資訊",
+    "statusTbd": "待確認"
   },
   "hero": {
     "tag": "大阪日本橋 · 到府男士水療",

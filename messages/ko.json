@@ -6,9 +6,26 @@
   "nav": {
     "service": "서비스",
     "price": "요금",
+    "cast": "테라피스트",
+    "schedule": "출근표",
     "access": "오시는 길",
     "contact": "문의",
     "reserve": "LINE 예약"
+  },
+  "cast": {
+    "title": "테라피스트",
+    "subtitle": "Cast",
+    "age": "세",
+    "empty": "준비 중입니다. 잠시만 기다려 주세요.",
+    "book": "이 테라피스트를 LINE으로 예약",
+    "back": "테라피스트 목록으로"
+  },
+  "schedule": {
+    "title": "출근표",
+    "subtitle": "Schedule",
+    "today": "오늘",
+    "noneDay": "이 날짜의 출근 정보가 아직 없습니다",
+    "statusTbd": "확인 중"
   },
   "hero": {
     "tag": "오사카 닛폰바시 · 방문형 남성 스파",

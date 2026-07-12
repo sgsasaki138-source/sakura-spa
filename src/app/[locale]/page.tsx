@@ -6,6 +6,7 @@ import { Link } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
+import { LINE_CUSTOMER, LINE_RECRUIT, PHONE_TEL, PHONE_DISPLAY } from '@/lib/constants'
 
 const LOCALE_LABELS: Record<string, string> = {
   ja: '日本語',
@@ -14,12 +15,6 @@ const LOCALE_LABELS: Record<string, string> = {
   'zh-TW': '繁體',
   ko: '한국어',
 }
-
-const LINE_CUSTOMER = 'https://lin.ee/oh3TAW1'
-const LINE_RECRUIT = 'https://lin.ee/OpQdem2'
-// 仮番号(2026/07中に固定番号へ差し替え予定) — 電話ボタンは日本語ページのみ表示
-const PHONE_TEL = 'tel:+819016734693'
-const PHONE_DISPLAY = '090-1673-4693'
 
 export default function HomePage() {
   const t = useTranslations()
@@ -58,6 +53,8 @@ export default function HomePage() {
           <nav className="hidden md:flex items-center gap-6 text-sm text-stone-300">
             <a href="#service" className="hover:text-rose-300 transition-colors">{t('nav.service')}</a>
             <a href="#price" className="hover:text-rose-300 transition-colors">{t('nav.price')}</a>
+            <Link href="/cast" className="hover:text-rose-300 transition-colors">{t('nav.cast')}</Link>
+            <Link href="/schedule" className="hover:text-rose-300 transition-colors">{t('nav.schedule')}</Link>
             <a href="#access" className="hover:text-rose-300 transition-colors">{t('nav.access')}</a>
             <a href="#contact" className="hover:text-rose-300 transition-colors">{t('nav.contact')}</a>
             <a href={LINE_CUSTOMER} target="_blank" rel="noopener noreferrer" className="bg-[#06C755] hover:bg-[#05b34c] text-white px-4 py-1.5 rounded-full transition-colors">{t('nav.reserve')}</a>
@@ -84,12 +81,12 @@ export default function HomePage() {
         {/* Mobile menu */}
         {menuOpen && (
           <div className="md:hidden bg-stone-900 border-t border-stone-800 px-4 py-4 flex flex-col gap-4">
-            {['service', 'price', 'access', 'contact'].map((key) => (
-              <a key={key} href={`#${key}`} onClick={() => setMenuOpen(false)}
-                className="text-stone-300 hover:text-rose-300 transition-colors">
-                {t(`nav.${key}`)}
-              </a>
-            ))}
+            <a href="#service" onClick={() => setMenuOpen(false)} className="text-stone-300 hover:text-rose-300 transition-colors">{t('nav.service')}</a>
+            <a href="#price" onClick={() => setMenuOpen(false)} className="text-stone-300 hover:text-rose-300 transition-colors">{t('nav.price')}</a>
+            <Link href="/cast" className="text-stone-300 hover:text-rose-300 transition-colors">{t('nav.cast')}</Link>
+            <Link href="/schedule" className="text-stone-300 hover:text-rose-300 transition-colors">{t('nav.schedule')}</Link>
+            <a href="#access" onClick={() => setMenuOpen(false)} className="text-stone-300 hover:text-rose-300 transition-colors">{t('nav.access')}</a>
+            <a href="#contact" onClick={() => setMenuOpen(false)} className="text-stone-300 hover:text-rose-300 transition-colors">{t('nav.contact')}</a>
             <a href={LINE_CUSTOMER} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}
               className="bg-[#06C755] text-white text-center px-4 py-2 rounded-full">
               {t('nav.reserve')}

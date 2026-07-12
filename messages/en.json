@@ -6,9 +6,26 @@
   "nav": {
     "service": "Services",
     "price": "Pricing",
+    "cast": "Therapists",
+    "schedule": "Schedule",
     "access": "Access",
     "contact": "Contact",
     "reserve": "Book on LINE"
+  },
+  "cast": {
+    "title": "Therapists",
+    "subtitle": "Cast",
+    "age": " y.o.",
+    "empty": "Coming soon. Please check back later.",
+    "book": "Book this therapist on LINE",
+    "back": "Back to all therapists"
+  },
+  "schedule": {
+    "title": "Schedule",
+    "subtitle": "Schedule",
+    "today": "Today",
+    "noneDay": "No schedule posted for this day yet",
+    "statusTbd": "TBD"
   },
   "hero": {
     "tag": "Osaka Nipponbashi · Mobile Men's Spa",
