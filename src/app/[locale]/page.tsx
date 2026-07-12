@@ -17,6 +17,9 @@ const LOCALE_LABELS: Record<string, string> = {
 
 const LINE_CUSTOMER = 'https://lin.ee/oh3TAW1'
 const LINE_RECRUIT = 'https://lin.ee/OpQdem2'
+// 仮番号(2026/07中に固定番号へ差し替え予定) — 電話ボタンは日本語ページのみ表示
+const PHONE_TEL = 'tel:+819016734693'
+const PHONE_DISPLAY = '090-1673-4693'
 
 export default function HomePage() {
   const t = useTranslations()
@@ -125,6 +128,12 @@ export default function HomePage() {
               className="border border-stone-600 hover:border-rose-400 text-stone-300 hover:text-rose-300 px-8 py-3 rounded-full text-lg transition-all">
               {t('hero.sub')}
             </a>
+            {locale === 'ja' && (
+              <a href={PHONE_TEL}
+                className="border border-stone-600 hover:border-rose-400 text-stone-300 hover:text-rose-300 px-8 py-3 rounded-full text-lg transition-all">
+                📞 {t('hero.tel')}
+              </a>
+            )}
           </div>
         </div>
         {/* Scroll indicator */}
@@ -247,12 +256,18 @@ export default function HomePage() {
             <div className="w-12 h-px bg-rose-500 mx-auto mt-4" />
           </div>
 
-          {/* LINE CTA */}
-          <div className="mb-8 text-center">
+          {/* LINE / Phone CTA */}
+          <div className="mb-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a href={LINE_CUSTOMER} target="_blank" rel="noopener noreferrer"
               className="inline-block bg-[#06C755] hover:bg-[#05b34c] text-white px-10 py-4 rounded-full text-lg transition-all hover:shadow-lg hover:shadow-green-900">
               💬 {t('contact.line')}
             </a>
+            {locale === 'ja' && (
+              <a href={PHONE_TEL}
+                className="inline-block border border-stone-600 hover:border-rose-400 text-stone-200 hover:text-rose-300 px-10 py-4 rounded-full text-lg transition-all">
+                📞 {PHONE_DISPLAY}
+              </a>
+            )}
           </div>
 
           <div className="text-center text-stone-600 mb-8">— {t('contact.form')} —</div>
