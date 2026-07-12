@@ -15,6 +15,9 @@ const LOCALE_LABELS: Record<string, string> = {
   ko: '한국어',
 }
 
+const LINE_CUSTOMER = 'https://lin.ee/oh3TAW1'
+const LINE_RECRUIT = 'https://lin.ee/OpQdem2'
+
 export default function HomePage() {
   const t = useTranslations()
   const locale = useLocale()
@@ -24,6 +27,8 @@ export default function HomePage() {
 
   const serviceItems = t.raw('service.items') as { name: string; desc: string }[]
   const plans = t.raw('price.plans') as { min: string; price: string }[]
+  const extras = t.raw('price.extras') as { label: string; price: string }[]
+  const options = t.raw('price.options') as { label: string; price: string }[]
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -52,7 +57,7 @@ export default function HomePage() {
             <a href="#price" className="hover:text-rose-300 transition-colors">{t('nav.price')}</a>
             <a href="#access" className="hover:text-rose-300 transition-colors">{t('nav.access')}</a>
             <a href="#contact" className="hover:text-rose-300 transition-colors">{t('nav.contact')}</a>
-            <a href="#contact" className="bg-rose-600 hover:bg-rose-500 text-white px-4 py-1.5 rounded-full transition-colors">{t('nav.reserve')}</a>
+            <a href={LINE_CUSTOMER} target="_blank" rel="noopener noreferrer" className="bg-[#06C755] hover:bg-[#05b34c] text-white px-4 py-1.5 rounded-full transition-colors">{t('nav.reserve')}</a>
           </nav>
           {/* Language switcher */}
           <div className="hidden md:flex items-center gap-1 ml-4">
@@ -82,8 +87,8 @@ export default function HomePage() {
                 {t(`nav.${key}`)}
               </a>
             ))}
-            <a href="#contact" onClick={() => setMenuOpen(false)}
-              className="bg-rose-600 text-white text-center px-4 py-2 rounded-full">
+            <a href={LINE_CUSTOMER} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}
+              className="bg-[#06C755] text-white text-center px-4 py-2 rounded-full">
               {t('nav.reserve')}
             </a>
             <div className="flex gap-2 flex-wrap">
@@ -112,13 +117,13 @@ export default function HomePage() {
           </p>
           <p className="text-stone-400 mb-10 leading-relaxed">{t('hero.desc')}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#contact"
-              className="bg-rose-600 hover:bg-rose-500 text-white px-8 py-3 rounded-full text-lg transition-all hover:shadow-lg hover:shadow-rose-900">
+            <a href={LINE_CUSTOMER} target="_blank" rel="noopener noreferrer"
+              className="bg-[#06C755] hover:bg-[#05b34c] text-white px-8 py-3 rounded-full text-lg transition-all hover:shadow-lg hover:shadow-green-900">
               {t('hero.cta')}
             </a>
-            <a href="tel:0000000000"
+            <a href="#price"
               className="border border-stone-600 hover:border-rose-400 text-stone-300 hover:text-rose-300 px-8 py-3 rounded-full text-lg transition-all">
-              {t('hero.tel')}
+              {t('hero.sub')}
             </a>
           </div>
         </div>
@@ -160,6 +165,7 @@ export default function HomePage() {
             <h2 className="text-3xl font-light tracking-widest text-white">{t('price.title')}</h2>
             <div className="w-12 h-px bg-rose-500 mx-auto mt-4" />
           </div>
+          <p className="text-center text-rose-200 text-lg tracking-widest mb-6">{t('price.course')}</p>
           <div className="border border-stone-700 rounded-2xl overflow-hidden">
             {plans.map((plan, i) => (
               <div key={i} className={`flex justify-between items-center px-8 py-5 ${i < plans.length - 1 ? 'border-b border-stone-800' : ''} hover:bg-stone-800/30 transition-colors`}>
@@ -167,6 +173,25 @@ export default function HomePage() {
                 <span className="text-rose-300 text-2xl font-light">{plan.price}</span>
               </div>
             ))}
+          </div>
+          <div className="mt-6 grid grid-cols-3 gap-3">
+            {extras.map((ex, i) => (
+              <div key={i} className="border border-stone-800 bg-stone-900/50 rounded-xl p-4 text-center">
+                <p className="text-stone-400 text-xs mb-1">{ex.label}</p>
+                <p className="text-rose-300 text-lg font-light">{ex.price}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10">
+            <p className="text-center text-stone-400 text-sm tracking-widest mb-4">— {t('price.optionsTitle')} —</p>
+            <div className="border border-stone-700 rounded-2xl overflow-hidden">
+              {options.map((op, i) => (
+                <div key={i} className={`flex justify-between items-center px-8 py-4 ${i < options.length - 1 ? 'border-b border-stone-800' : ''}`}>
+                  <span className="text-stone-300">{op.label}</span>
+                  <span className="text-rose-300 text-lg font-light">{op.price}</span>
+                </div>
+              ))}
+            </div>
           </div>
           <div className="mt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-sm text-stone-500">
             <span>{t('price.note')}</span>
@@ -222,11 +247,11 @@ export default function HomePage() {
             <div className="w-12 h-px bg-rose-500 mx-auto mt-4" />
           </div>
 
-          {/* Phone CTA */}
+          {/* LINE CTA */}
           <div className="mb-8 text-center">
-            <a href="tel:0000000000"
-              className="inline-block bg-rose-600 hover:bg-rose-500 text-white px-10 py-4 rounded-full text-lg transition-all hover:shadow-lg hover:shadow-rose-900">
-              📞 {t('contact.tel')}
+            <a href={LINE_CUSTOMER} target="_blank" rel="noopener noreferrer"
+              className="inline-block bg-[#06C755] hover:bg-[#05b34c] text-white px-10 py-4 rounded-full text-lg transition-all hover:shadow-lg hover:shadow-green-900">
+              💬 {t('contact.line')}
             </a>
           </div>
 
@@ -267,7 +292,11 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer className="py-8 border-t border-stone-800 text-center text-stone-600 text-sm">
-        <p>{t('footer.copy')}</p>
+        <a href={LINE_RECRUIT} target="_blank" rel="noopener noreferrer"
+          className="text-stone-500 hover:text-rose-300 transition-colors underline underline-offset-4">
+          {t('footer.recruit')}
+        </a>
+        <p className="mt-3">{t('footer.copy')}</p>
       </footer>
     </div>
   )

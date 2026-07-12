@@ -1,58 +1,70 @@
 {
   "meta": {
     "title": "SAKURA SPA Nipponbashi | 大阪日本橋 到府男士水療",
-    "description": "大阪日本橋到府男士水療服務。完全預約制，專業治療師直接到您的飯店或住所。"
+    "description": "大阪日本橋到府男士水療服務。完全預約制，專業按摩師直接到您的飯店或住所。"
   },
   "nav": {
     "service": "服務項目",
     "price": "價格",
     "access": "交通",
     "contact": "預約諮詢",
-    "reserve": "立即預約"
+    "reserve": "LINE預約"
   },
   "hero": {
     "tag": "大阪日本橋 · 到府男士水療",
     "title": "SAKURA SPA",
     "subtitle": "Nipponbashi",
     "catch": "遠離塵囂，\n盡享極致放鬆。",
-    "desc": "完全預約制，專業治療師直接到您的飯店或住所，為您提供私密而奢華的放鬆體驗。",
-    "cta": "立即預約",
-    "tel": "電話預約"
+    "desc": "完全預約制，專業按摩師直接到您的飯店或住所，為您提供私密而奢華的放鬆體驗。",
+    "cta": "LINE預約",
+    "sub": "查看價格"
   },
   "service": {
     "title": "服務項目",
     "subtitle": "Service",
     "items": [
-      { "name": "全身護理套餐", "desc": "涵蓋全身的極致放鬆標準套餐。" },
-      { "name": "尊享套餐", "desc": "融合芳香療法與專業技術的特別療癒體驗。" },
-      { "name": "頭皮水療套餐", "desc": "細心護理頭皮、頸部和肩部的清爽套餐。" }
+      { "name": "奢華淋巴按摩", "desc": "使用大量精油的正宗淋巴護理，細緻舒緩全身疲勞與僵硬，帶來極致放鬆體驗。" },
+      { "name": "到府服務", "desc": "經驗豐富的按摩師直接前往您的飯店或住所，足不出戶即可享受。" },
+      { "name": "完全預約制", "desc": "注重隱私的完全預約制，透過LINE即可輕鬆預約。" }
     ]
   },
   "price": {
     "title": "價格",
     "subtitle": "Price",
+    "course": "奢華淋巴護理套餐",
     "note": "※ 所有價格含稅",
     "card": "支援信用卡付款",
     "plans": [
-      { "min": "60分鐘", "price": "¥15,000" },
-      { "min": "90分鐘", "price": "¥20,000" },
-      { "min": "120分鐘", "price": "¥26,000" },
-      { "min": "150分鐘", "price": "¥32,000" },
-      { "min": "180分鐘", "price": "¥37,000" }
+      { "min": "60分鐘", "price": "¥14,000" },
+      { "min": "90分鐘", "price": "¥16,000" },
+      { "min": "120分鐘", "price": "¥20,000" },
+      { "min": "150分鐘", "price": "¥26,000" },
+      { "min": "180分鐘", "price": "¥32,000" }
+    ],
+    "extras": [
+      { "label": "延長30分鐘", "price": "¥6,000" },
+      { "label": "指名費", "price": "¥1,000" },
+      { "label": "回頭指名費", "price": "¥2,000" }
+    ],
+    "optionsTitle": "附加服務",
+    "options": [
+      { "label": "角色扮演", "price": "¥2,000" },
+      { "label": "精油加量", "price": "¥3,000" },
+      { "label": "極致精華液", "price": "¥3,000" }
     ]
   },
   "access": {
     "title": "交通",
     "subtitle": "Access",
-    "area": "大阪市浪速區・中央區（日本橋地區）",
-    "type": "到府服務（直接到您的飯店或住所）",
-    "hours": "營業時間：12:00 ～ 翌日3:00",
+    "area": "大阪市浪速區・中央區(日本橋地區)",
+    "type": "到府服務(直接到您的飯店或住所)",
+    "hours": "營業時間:12:00 ～ 翌日3:00",
     "note": "※ 我們提供大阪地區全區域到府服務"
   },
   "contact": {
     "title": "預約與諮詢",
     "subtitle": "Contact",
-    "tel": "電話/LINE預約",
+    "line": "LINE預約",
     "form": "發送郵件",
     "name": "姓名",
     "phone": "電話號碼",
@@ -62,9 +74,10 @@
     "send": "送出",
     "sending": "送出中...",
     "success": "已收到您的諮詢，我們將盡快與您聯繫。",
-    "error": "送出失敗，請透過電話與我們聯繫。"
+    "error": "送出失敗，請透過LINE與我們聯繫。"
   },
   "footer": {
-    "copy": "© 2025 SAKURA SPA Nipponbashi. All rights reserved."
+    "recruit": "按摩師招募",
+    "copy": "© 2026 SAKURA SPA Nipponbashi. All rights reserved."
   }
 }

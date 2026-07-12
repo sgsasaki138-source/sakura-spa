@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>SAKURA SPA Rich Menu</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 2500px; height: 1686px; overflow: hidden; }
+  body {
+    background: #0c0a09;
+    position: relative;
+    font-family: "Yu Gothic", "Meiryo", sans-serif;
+  }
+  /* 背景の桜グロー */
+  .glow {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 1400px 900px at 15% -10%, rgba(225,29,72,0.16), transparent 65%),
+      radial-gradient(ellipse 1400px 900px at 90% 115%, rgba(225,29,72,0.14), transparent 65%),
+      radial-gradient(ellipse 900px 600px at 50% 50%, rgba(244,63,94,0.06), transparent 70%);
+  }
+  .petals { position: absolute; inset: 0; opacity: 0.5; }
+
+  .grid {
+    position: absolute; inset: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+  .cell {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 34px;
+    border-right: 2px solid rgba(253,164,175,0.18);
+    border-bottom: 2px solid rgba(253,164,175,0.18);
+  }
+  .cell:nth-child(3n) { border-right: none; }
+  .cell:nth-child(n+4) { border-bottom: none; }
+
+  .icon-wrap {
+    width: 210px; height: 210px;
+    border-radius: 50%;
+    background: rgba(136,19,55,0.35);
+    border: 2px solid rgba(253,164,175,0.35);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .icon-wrap svg { width: 118px; height: 118px; stroke: #fda4af; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+  .en {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 74px;
+    letter-spacing: 0.18em;
+    color: #fafaf9;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+  .ja {
+    font-size: 42px;
+    letter-spacing: 0.3em;
+    color: #fda4af;
+    font-weight: 500;
+  }
+
+  /* 予約セル(強調) */
+  .cell.reserve {
+    background: linear-gradient(150deg, #9f1239 0%, #e11d48 55%, #be123c 100%);
+  }
+  .cell.reserve .icon-wrap {
+    background: rgba(255,255,255,0.14);
+    border-color: rgba(255,255,255,0.55);
+  }
+  .cell.reserve .icon-wrap svg { stroke: #ffffff; }
+  .cell.reserve .en { color: #ffffff; }
+  .cell.reserve .ja { color: #ffe4e6; }
+
+  .sakura-mark {
+    position: absolute;
+    top: 40px; right: 48px;
+    font-family: Georgia, serif;
+    font-size: 34px;
+    letter-spacing: 0.35em;
+    color: rgba(253,164,175,0.4);
+  }
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+
+  <!-- 桜の花びら(装飾) -->
+  <svg class="petals" viewBox="0 0 2500 1686" xmlns="http://www.w3.org/2000/svg">
+    <g fill="rgba(253,164,175,0.10)">
+      <path d="M180 130 q30 -45 60 0 q-30 45 -60 0z" transform="rotate(25 210 130)"/>
+      <path d="M2320 90 q26 -40 52 0 q-26 40 -52 0z" transform="rotate(-30 2346 90)"/>
+      <path d="M2260 1560 q30 -45 60 0 q-30 45 -60 0z" transform="rotate(45 2290 1560)"/>
+      <path d="M120 1590 q26 -40 52 0 q-26 40 -52 0z" transform="rotate(-15 146 1590)"/>
+      <path d="M1250 60 q22 -34 44 0 q-22 34 -44 0z" transform="rotate(60 1272 60)"/>
+    </g>
+  </svg>
+
+  <div class="grid">
+    <!-- 1: 予約 -->
+    <div class="cell reserve">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24">
+          <rect x="3" y="5" width="18" height="16" rx="2"/>
+          <line x1="3" y1="9.5" x2="21" y2="9.5"/>
+          <line x1="8" y1="2.5" x2="8" y2="6.5"/>
+          <line x1="16" y1="2.5" x2="16" y2="6.5"/>
+          <polyline points="8.5,14.5 11,17 15.5,12.5"/>
+        </svg>
+      </div>
+      <div class="en">Reserve</div>
+      <div class="ja">ご予約</div>
+    </div>
+
+    <!-- 2: 出勤一覧 -->
+    <div class="cell">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9"/>
+          <polyline points="12,6.5 12,12 16,14.5"/>
+        </svg>
+      </div>
+      <div class="en">Schedule</div>
+      <div class="ja">出勤一覧</div>
+    </div>
+
+    <!-- 3: 料金・コース -->
+    <div class="cell">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24">
+          <path d="M7 4 L12 11 L17 4"/>
+          <line x1="12" y1="11" x2="12" y2="20"/>
+          <line x1="8" y1="13.5" x2="16" y2="13.5"/>
+          <line x1="8" y1="16.5" x2="16" y2="16.5"/>
+        </svg>
+      </div>
+      <div class="en">Price</div>
+      <div class="ja">料金・コース</div>
+    </div>
+
+    <!-- 4: セラピスト -->
+    <div class="cell">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="8" r="4"/>
+          <path d="M4.5 21 q0 -6 7.5 -6 q7.5 0 7.5 6"/>
+        </svg>
+      </div>
+      <div class="en">Therapists</div>
+      <div class="ja">セラピスト一覧</div>
+    </div>
+
+    <!-- 5: アクセス・営業時間 -->
+    <div class="cell">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 21 C12 21 5 14.5 5 9.5 a7 7 0 0 1 14 0 C19 14.5 12 21 12 21z"/>
+          <circle cx="12" cy="9.5" r="2.6"/>
+        </svg>
+      </div>
+      <div class="en">Access</div>
+      <div class="ja">アクセス・営業時間</div>
+    </div>
+
+    <!-- 6: お問い合わせ -->
+    <div class="cell">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 5 h16 a1.5 1.5 0 0 1 1.5 1.5 v9 a1.5 1.5 0 0 1 -1.5 1.5 H10 l-4.5 4 v-4 H4 a1.5 1.5 0 0 1 -1.5 -1.5 v-9 A1.5 1.5 0 0 1 4 5z"/>
+          <circle cx="8.5" cy="11" r="0.4"/>
+          <circle cx="12" cy="11" r="0.4"/>
+          <circle cx="15.5" cy="11" r="0.4"/>
+        </svg>
+      </div>
+      <div class="en">Contact</div>
+      <div class="ja">お問い合わせ</div>
+    </div>
+  </div>
+
+  <div class="sakura-mark">SAKURA SPA</div>
+</body>
+</html>
