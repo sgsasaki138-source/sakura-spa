@@ -81,17 +81,9 @@
   "contact": {
     "title": "예약 및 문의",
     "subtitle": "Contact",
-    "line": "LINE으로 예약",
-    "form": "이메일로 문의",
-    "name": "이름",
-    "phone": "전화번호",
-    "date": "희망 날짜 및 시간",
-    "course": "희망 코스",
-    "message": "요청사항 / 질문",
-    "send": "보내기",
-    "sending": "전송 중...",
-    "success": "문의가 접수되었습니다. 담당자가 곧 연락드리겠습니다.",
-    "error": "전송에 실패했습니다. LINE으로 문의해 주세요."
+    "line": "LINE으로 예약・문의",
+    "lead": "예약과 문의는 모두 LINE으로 받고 있습니다.\n편하게 메시지를 보내주세요.",
+    "hours": "접수 시간: 12:00 ~ 익일 03:00"
   },
   "footer": {
     "recruit": "테라피스트 모집",

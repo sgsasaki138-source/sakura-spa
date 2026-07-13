@@ -81,17 +81,9 @@
   "contact": {
     "title": "预约与咨询",
     "subtitle": "Contact",
-    "line": "LINE预约",
-    "form": "发送邮件",
-    "name": "姓名",
-    "phone": "电话号码",
-    "date": "希望预约日期",
-    "course": "希望选择套餐",
-    "message": "备注/问题",
-    "send": "发送",
-    "sending": "发送中...",
-    "success": "已收到您的咨询，我们将尽快与您联系。",
-    "error": "发送失败，请通过LINE与我们联系。"
+    "line": "通过LINE预约・咨询",
+    "lead": "预约和咨询均通过LINE受理。\n欢迎随时给我们发送消息。",
+    "hours": "受理时间:12:00 ～ 次日3:00"
   },
   "footer": {
     "recruit": "按摩师招聘",

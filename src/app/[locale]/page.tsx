@@ -4,8 +4,6 @@ import { useTranslations, useLocale } from 'next-intl'
 import { useState } from 'react'
 import { Link } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
-import { db } from '@/lib/firebase'
 import { LINE_CUSTOMER, LINE_RECRUIT, PHONE_TEL, PHONE_DISPLAY } from '@/lib/constants'
 
 const LOCALE_LABELS: Record<string, string> = {
@@ -19,30 +17,12 @@ const LOCALE_LABELS: Record<string, string> = {
 export default function HomePage() {
   const t = useTranslations()
   const locale = useLocale()
-  const [form, setForm] = useState({ name: '', phone: '', date: '', course: '', message: '' })
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
   const [menuOpen, setMenuOpen] = useState(false)
 
   const serviceItems = t.raw('service.items') as { name: string; desc: string }[]
   const plans = t.raw('price.plans') as { min: string; price: string }[]
   const extras = t.raw('price.extras') as { label: string; price: string }[]
   const options = t.raw('price.options') as { label: string; price: string }[]
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setStatus('sending')
-    try {
-      await addDoc(collection(db, 'contacts'), {
-        ...form,
-        locale,
-        createdAt: serverTimestamp(),
-      })
-      setStatus('success')
-      setForm({ name: '', phone: '', date: '', course: '', message: '' })
-    } catch {
-      setStatus('error')
-    }
-  }
 
   return (
     <div className="min-h-screen bg-stone-950 text-stone-100 font-sans">
@@ -253,52 +233,21 @@ export default function HomePage() {
             <div className="w-12 h-px bg-rose-500 mx-auto mt-4" />
           </div>
 
-          {/* LINE / Phone CTA */}
-          <div className="mb-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
+          {/* LINE 予約・問い合わせ導線(フォーム廃止・LINE一本化) */}
+          <p className="text-center text-stone-400 mb-8 leading-relaxed">{t('contact.lead')}</p>
+          <div className="flex flex-col items-center gap-4">
             <a href={LINE_CUSTOMER} target="_blank" rel="noopener noreferrer"
-              className="inline-block bg-[#06C755] hover:bg-[#05b34c] text-white px-10 py-4 rounded-full text-lg transition-all hover:shadow-lg hover:shadow-green-900">
+              className="w-full sm:w-auto inline-block bg-[#06C755] hover:bg-[#05b34c] text-white px-12 py-4 rounded-full text-lg text-center transition-all hover:shadow-lg hover:shadow-green-900">
               💬 {t('contact.line')}
             </a>
             {locale === 'ja' && (
               <a href={PHONE_TEL}
-                className="inline-block border border-stone-600 hover:border-rose-400 text-stone-200 hover:text-rose-300 px-10 py-4 rounded-full text-lg transition-all">
+                className="w-full sm:w-auto inline-block border border-stone-600 hover:border-rose-400 text-stone-200 hover:text-rose-300 px-12 py-4 rounded-full text-lg text-center transition-all">
                 📞 {PHONE_DISPLAY}
               </a>
             )}
           </div>
-
-          <div className="text-center text-stone-600 mb-8">— {t('contact.form')} —</div>
-
-          {/* Form */}
-          {status === 'success' ? (
-            <div className="text-center text-rose-300 py-8">{t('contact.success')}</div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              {(['name', 'phone', 'date', 'course'] as const).map((field) => (
-                <input key={field}
-                  type="text"
-                  placeholder={t(`contact.${field}`)}
-                  value={form[field]}
-                  onChange={(e) => setForm({ ...form, [field]: e.target.value })}
-                  className="w-full bg-stone-800 border border-stone-700 rounded-xl px-4 py-3 text-stone-200 placeholder-stone-600 focus:outline-none focus:border-rose-600 transition-colors"
-                />
-              ))}
-              <textarea
-                placeholder={t('contact.message')}
-                rows={4}
-                value={form.message}
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="w-full bg-stone-800 border border-stone-700 rounded-xl px-4 py-3 text-stone-200 placeholder-stone-600 focus:outline-none focus:border-rose-600 transition-colors resize-none"
-              />
-              {status === 'error' && (
-                <p className="text-red-400 text-sm">{t('contact.error')}</p>
-              )}
-              <button type="submit" disabled={status === 'sending'}
-                className="w-full bg-rose-600 hover:bg-rose-500 disabled:opacity-50 text-white py-3 rounded-xl transition-colors">
-                {status === 'sending' ? t('contact.sending') : t('contact.send')}
-              </button>
-            </form>
-          )}
+          <p className="text-center text-stone-600 text-sm mt-8">{t('contact.hours')}</p>
         </div>
       </section>
 

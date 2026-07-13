@@ -81,17 +81,9 @@
   "contact": {
     "title": "預約與諮詢",
     "subtitle": "Contact",
-    "line": "LINE預約",
-    "form": "發送郵件",
-    "name": "姓名",
-    "phone": "電話號碼",
-    "date": "希望預約日期",
-    "course": "希望選擇套餐",
-    "message": "備註/問題",
-    "send": "送出",
-    "sending": "送出中...",
-    "success": "已收到您的諮詢，我們將盡快與您聯繫。",
-    "error": "送出失敗，請透過LINE與我們聯繫。"
+    "line": "透過LINE預約・諮詢",
+    "lead": "預約和諮詢均透過LINE受理。\n歡迎隨時傳送訊息給我們。",
+    "hours": "受理時間:12:00 ～ 翌日3:00"
   },
   "footer": {
     "recruit": "按摩師招募",

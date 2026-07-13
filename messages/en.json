@@ -81,17 +81,9 @@
   "contact": {
     "title": "Reservations & Inquiries",
     "subtitle": "Contact",
-    "line": "Book on LINE",
-    "form": "Send an Email",
-    "name": "Name",
-    "phone": "Phone Number",
-    "date": "Preferred Date & Time",
-    "course": "Preferred Course",
-    "message": "Message / Requests",
-    "send": "Send",
-    "sending": "Sending...",
-    "success": "Thank you! We will contact you shortly.",
-    "error": "Failed to send. Please contact us on LINE."
+    "line": "Book & Inquire on LINE",
+    "lead": "All reservations and inquiries are handled via LINE.\nFeel free to send us a message anytime.",
+    "hours": "Hours: 12:00 PM – 3:00 AM"
   },
   "footer": {
     "recruit": "Therapist Recruitment",
