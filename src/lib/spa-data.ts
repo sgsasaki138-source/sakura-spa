@@ -42,6 +42,29 @@ export async function fetchTherapist(id: string): Promise<Therapist | null> {
   return t.visible === false ? null : t
 }
 
+export type Banner = {
+  id: string
+  pcImage?: string | null
+  mobileImage?: string | null
+  title?: string
+  titleEn?: string
+  subtitle?: string
+  subtitleEn?: string
+  cta1Link?: string
+  visible?: boolean
+  order?: number
+}
+
+export async function fetchBanners(): Promise<Banner[]> {
+  const snap = await getDoc(doc(db, 'sakuraspa', 'banners'))
+  if (!snap.exists()) return []
+  const value = snap.data().value
+  const list: Banner[] = Array.isArray(value) ? value : []
+  return list
+    .filter((b) => b.visible !== false && (b.pcImage || b.mobileImage))
+    .sort((a, b) => (a.order || 0) - (b.order || 0))
+}
+
 export async function fetchSchedule(): Promise<ScheduleItem[]> {
   const snap = await getDoc(doc(db, 'sakuraspa', 'schedule'))
   if (!snap.exists()) return []

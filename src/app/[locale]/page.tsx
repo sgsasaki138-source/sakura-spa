@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { Link } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
 import { LINE_CUSTOMER, LINE_RECRUIT, PHONE_TEL, PHONE_DISPLAY } from '@/lib/constants'
+import HeroBanner from '@/components/HeroBanner'
 
 const LOCALE_LABELS: Record<string, string> = {
   ja: '日本語',
@@ -95,7 +96,8 @@ export default function HomePage() {
           <p className="text-2xl md:text-3xl font-light text-stone-200 mb-6 whitespace-pre-line leading-relaxed">
             {t('hero.catch')}
           </p>
-          <p className="text-stone-400 mb-10 leading-relaxed">{t('hero.desc')}</p>
+          <p className="text-stone-400 mb-8 leading-relaxed">{t('hero.desc')}</p>
+          <HeroBanner />
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href={LINE_CUSTOMER} target="_blank" rel="noopener noreferrer"
               className="bg-[#06C755] hover:bg-[#05b34c] text-white px-8 py-3 rounded-full text-lg transition-all hover:shadow-lg hover:shadow-green-900">
