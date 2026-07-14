@@ -8,6 +8,7 @@ import {
   fetchTherapists,
   fetchSchedule,
   displayName,
+  scheduleTimeText,
   sizeText,
   tagList,
   type Therapist,
@@ -23,12 +24,6 @@ function dateKey(d: Date): string {
   const m = String(d.getMonth() + 1).padStart(2, '0')
   const day = String(d.getDate()).padStart(2, '0')
   return `${y}-${m}-${day}`
-}
-
-function scheduleTimeText(item: ScheduleItem): string {
-  const startTime = typeof item.startTime === 'string' ? item.startTime.trim() : ''
-  const endTime = typeof item.endTime === 'string' ? item.endTime.trim() : ''
-  return startTime && endTime ? `${startTime}〜${endTime}` : '—'
 }
 
 export default function SchedulePage() {

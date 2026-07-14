@@ -100,3 +100,9 @@ export function sizeText(t: Therapist): string {
   if (t.hip) parts.push(`H${t.hip}`)
   return parts.join(' ')
 }
+
+export function scheduleTimeText(item: ScheduleItem): string {
+  const startTime = typeof item.startTime === 'string' ? item.startTime.trim() : ''
+  const endTime = typeof item.endTime === 'string' ? item.endTime.trim() : ''
+  return startTime && endTime ? `${startTime}〜${endTime}` : '—'
+}

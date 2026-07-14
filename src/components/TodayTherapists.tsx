@@ -7,6 +7,9 @@ import {
   displayName,
   fetchSchedule,
   fetchTherapists,
+  scheduleTimeText,
+  sizeText,
+  tagList,
   type ScheduleItem,
   type Therapist,
 } from '@/lib/spa-data'
@@ -33,17 +36,26 @@ export default function TodayTherapists() {
       .catch(() => setSchedule([]))
   }, [])
 
-  const todayTherapists = useMemo(() => {
+  const todayEntries = useMemo(() => {
     if (!schedule) return []
 
     const today = dateKey(new Date())
-    const workingIds = new Set(
-      schedule
-        .filter((item) => item.date === today && item.status !== '休み')
-        .map((item) => String(item.therapistId)),
-    )
+    const workingSchedule = new Map<string, ScheduleItem>()
+    schedule
+      .filter((item) => item.date === today && item.status !== '休み')
+      .forEach((item) => {
+        const therapistId = String(item.therapistId)
+        if (!workingSchedule.has(therapistId)) workingSchedule.set(therapistId, item)
+      })
 
-    return therapists.filter((therapist) => workingIds.has(String(therapist.id))).slice(0, 3)
+    const entries: { therapist: Therapist; scheduleItem: ScheduleItem }[] = []
+    for (const therapist of therapists) {
+      const scheduleItem = workingSchedule.get(String(therapist.id))
+      if (scheduleItem) entries.push({ therapist, scheduleItem })
+      if (entries.length === 3) break
+    }
+
+    return entries
   }, [schedule, therapists])
 
   return (
@@ -57,17 +69,17 @@ export default function TodayTherapists() {
 
         {schedule === null ? (
           <p className="text-center text-stone-500 py-10">…</p>
-        ) : todayTherapists.length === 0 ? (
+        ) : todayEntries.length === 0 ? (
           <p className="text-center text-stone-500 py-10">{t('schedule.noneDay')}</p>
         ) : (
           <div className="grid grid-cols-3 gap-2 sm:gap-5 max-w-3xl mx-auto">
-            {todayTherapists.map((therapist) => (
+            {todayEntries.map(({ therapist, scheduleItem }) => (
               <Link
                 key={therapist.id}
                 href={`/cast/${therapist.id}`}
                 className="group min-w-0 bg-stone-900 border border-stone-800 rounded-xl sm:rounded-2xl overflow-hidden hover:border-rose-800 transition-colors"
               >
-                <div className="aspect-[3/4] bg-stone-800 overflow-hidden">
+                <div className="relative aspect-[3/4] bg-stone-800 overflow-hidden">
                   {therapist.photos && therapist.photos.length > 0 ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
@@ -78,13 +90,35 @@ export default function TodayTherapists() {
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-3xl text-stone-700">🌸</div>
                   )}
+                  {scheduleItem.status === '要確認' && (
+                    <span className="absolute top-2 right-2 text-[9px] sm:text-[10px] text-amber-200 bg-stone-950/85 border border-amber-800/70 px-1.5 sm:px-2 py-1 rounded-full">
+                      {t('schedule.statusTbd')}
+                    </span>
+                  )}
                 </div>
-                <div className="p-2 sm:p-4 text-center">
-                  <p className="text-sm sm:text-lg text-white truncate">{displayName(therapist, locale)}</p>
-                  {therapist.age && (
-                    <p className="text-[11px] sm:text-xs text-stone-500 mt-1">
-                      {therapist.age}{t('cast.age')}
-                    </p>
+                <div className="p-2.5 sm:p-3 text-left">
+                  <div className="flex items-baseline gap-1 min-w-0">
+                    <span className="text-sm sm:text-base text-white truncate">{displayName(therapist, locale)}</span>
+                    {therapist.age && (
+                      <span className="text-[10px] sm:text-xs text-stone-500 shrink-0">
+                        {therapist.age}{t('cast.age')}
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-rose-300 text-[11px] sm:text-xs mt-1.5 font-medium">
+                    {scheduleTimeText(scheduleItem)}
+                  </p>
+                  {sizeText(therapist) && (
+                    <p className="text-stone-500 text-[9px] sm:text-[10px] mt-1.5 truncate">{sizeText(therapist)}</p>
+                  )}
+                  {tagList(therapist).length > 0 && (
+                    <div className="flex flex-wrap gap-1 mt-2">
+                      {tagList(therapist).slice(0, 3).map((tag, i) => (
+                        <span key={i} className="text-[8px] sm:text-[9px] text-rose-300 bg-rose-950/60 px-1.5 py-0.5 rounded-full">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   )}
                 </div>
               </Link>
