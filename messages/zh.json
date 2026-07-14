@@ -3,6 +3,14 @@
     "title": "SAKURA SPA Nipponbashi | 大阪日本桥 上门男士水疗",
     "description": "大阪日本桥上门男士水疗服务。完全预约制，专业按摩师直接上门到您的酒店或住所。"
   },
+  "ageGate": {
+    "title": "年龄确认",
+    "description": "本网站仅面向年满18岁的用户。\n未满18岁者禁止进入。",
+    "question": "您已年满18岁吗？",
+    "enter": "已满18岁 — 进入",
+    "leave": "未满18岁 — 离开",
+    "note": "选择“已满18岁”即可进入网站。"
+  },
   "nav": {
     "service": "服务项目",
     "price": "价格",

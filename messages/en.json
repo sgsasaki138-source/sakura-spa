@@ -3,6 +3,14 @@
     "title": "SAKURA SPA Nipponbashi | Osaka Men's Relaxation Spa",
     "description": "Private mobile men's relaxation spa in Osaka Nipponbashi. By appointment only. Our experienced therapists come to your hotel or home."
   },
+  "ageGate": {
+    "title": "Age Verification",
+    "description": "This website is intended for adults aged 18 and over.\nVisitors under 18 are not permitted to enter.",
+    "question": "Are you 18 or older?",
+    "enter": "18 or Older — ENTER",
+    "leave": "Under 18 — LEAVE",
+    "note": "Select “18 or Older” to continue to the website."
+  },
   "nav": {
     "service": "Services",
     "price": "Pricing",

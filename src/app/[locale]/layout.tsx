@@ -3,6 +3,7 @@ import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import { notFound } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
 import { routing } from '@/i18n/routing'
+import AgeGate from '@/components/AgeGate'
 import '../globals.css'
 
 type Props = {
@@ -53,6 +54,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     <html lang={locale}>
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
+          <AgeGate />
           {children}
         </NextIntlClientProvider>
       </body>

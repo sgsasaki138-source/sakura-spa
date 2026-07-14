@@ -3,6 +3,14 @@
     "title": "SAKURA SPA Nipponbashi | 大阪日本橋 到府男士水療",
     "description": "大阪日本橋到府男士水療服務。完全預約制，專業按摩師直接到您的飯店或住所。"
   },
+  "ageGate": {
+    "title": "年齡確認",
+    "description": "本網站僅供年滿18歲的使用者瀏覽。\n未滿18歲者禁止進入。",
+    "question": "您已年滿18歲嗎？",
+    "enter": "已滿18歲 — 進入",
+    "leave": "未滿18歲 — 離開",
+    "note": "選擇「已滿18歲」即可進入網站。"
+  },
   "nav": {
     "service": "服務項目",
     "price": "價格",
