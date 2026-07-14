@@ -184,9 +184,8 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-          <div className="mt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-sm text-stone-500">
+          <div className="mt-6 text-center text-sm text-stone-500">
             <span>{t('price.note')}</span>
-            <span className="text-rose-400">💳 {t('price.card')}</span>
           </div>
         </div>
       </section>
