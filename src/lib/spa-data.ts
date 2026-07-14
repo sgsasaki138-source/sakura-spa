@@ -11,7 +11,7 @@ export type Therapist = {
   cup?: string
   waist?: string
   hip?: string
-  tags?: string
+  tags?: string | string[]
   profile?: string
   profileEn?: string
   skills?: string
@@ -61,7 +61,10 @@ export function displayProfile(t: Therapist, locale: string): string {
 }
 
 export function tagList(t: Therapist): string[] {
-  return (t.tags || '').split(/[、,]+/).map((s) => s.trim()).filter(Boolean)
+  const raw = t.tags
+  // 管理画面はtagsを配列で保存するが、文字列で入っている場合も両対応
+  if (Array.isArray(raw)) return raw.map((s) => String(s).trim()).filter(Boolean)
+  return String(raw || '').split(/[、,]+/).map((s) => s.trim()).filter(Boolean)
 }
 
 export function sizeText(t: Therapist): string {
