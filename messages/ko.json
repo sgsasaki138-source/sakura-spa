@@ -24,6 +24,9 @@
     "title": "출근표",
     "subtitle": "Schedule",
     "today": "오늘",
+    "homeTitle": "오늘 출근 테라피스트",
+    "homeSubtitle": "Today's Therapists",
+    "more": "더 보기",
     "noneDay": "이 날짜의 출근 정보가 아직 없습니다",
     "statusTbd": "확인 중"
   },

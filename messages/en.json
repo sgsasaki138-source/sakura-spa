@@ -24,6 +24,9 @@
     "title": "Schedule",
     "subtitle": "Schedule",
     "today": "Today",
+    "homeTitle": "Today's Therapists",
+    "homeSubtitle": "Today's Therapists",
+    "more": "View Full Schedule",
     "noneDay": "No schedule posted for this day yet",
     "statusTbd": "TBD"
   },

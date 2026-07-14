@@ -24,6 +24,9 @@
     "title": "出勤表",
     "subtitle": "Schedule",
     "today": "今天",
+    "homeTitle": "今日出勤按摩师",
+    "homeSubtitle": "Today's Therapists",
+    "more": "查看更多",
     "noneDay": "该日期暂无出勤信息",
     "statusTbd": "待确认"
   },

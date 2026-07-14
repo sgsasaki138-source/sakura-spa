@@ -24,6 +24,9 @@
     "title": "出勤表",
     "subtitle": "Schedule",
     "today": "本日",
+    "homeTitle": "本日出勤のセラピスト",
+    "homeSubtitle": "Today's Therapists",
+    "more": "もっと見る",
     "noneDay": "この日の出勤情報はまだありません",
     "statusTbd": "要確認"
   },

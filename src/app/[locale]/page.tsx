@@ -6,6 +6,7 @@ import { Link } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
 import { LINE_CUSTOMER, LINE_RECRUIT, PHONE_TEL, PHONE_DISPLAY } from '@/lib/constants'
 import HeroBanner from '@/components/HeroBanner'
+import TodayTherapists from '@/components/TodayTherapists'
 
 const LOCALE_LABELS: Record<string, string> = {
   ja: '日本語',
@@ -122,6 +123,8 @@ export default function HomePage() {
           </svg>
         </div>
       </section>
+
+      <TodayTherapists />
 
       {/* Service */}
       <section id="service" className="py-24 px-4 bg-stone-900">
