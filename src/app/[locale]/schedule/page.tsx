@@ -25,6 +25,12 @@ function dateKey(d: Date): string {
   return `${y}-${m}-${day}`
 }
 
+function scheduleTimeText(item: ScheduleItem): string {
+  const startTime = typeof item.startTime === 'string' ? item.startTime.trim() : ''
+  const endTime = typeof item.endTime === 'string' ? item.endTime.trim() : ''
+  return startTime && endTime ? `${startTime}〜${endTime}` : '—'
+}
+
 export default function SchedulePage() {
   const t = useTranslations()
   const locale = useLocale()
@@ -119,6 +125,9 @@ export default function SchedulePage() {
                         </span>
                       )}
                     </div>
+                    <p className="text-rose-300 text-xs sm:text-sm mt-1.5 font-medium">
+                      {scheduleTimeText(e)}
+                    </p>
                     {sizeText(e.cast) && (
                       <p className="text-stone-500 text-[10px] sm:text-xs mt-1.5 truncate">{sizeText(e.cast)}</p>
                     )}

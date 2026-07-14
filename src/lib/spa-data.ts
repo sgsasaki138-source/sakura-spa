@@ -25,6 +25,8 @@ export type ScheduleItem = {
   therapistId: string
   date: string // YYYY-MM-DD
   status: string // 出勤 | 休み | 要確認
+  startTime?: string // HH:MM
+  endTime?: string // HH:MM
 }
 
 export async function fetchTherapists(): Promise<Therapist[]> {
