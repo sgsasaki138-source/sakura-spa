@@ -9,7 +9,10 @@
     "question": "您已年满18岁吗？",
     "enter": "已满18岁 — 进入",
     "leave": "未满18岁 — 离开",
-    "note": "选择“已满18岁”即可进入网站。"
+    "note": "选择“已满18岁”即可进入网站。",
+    "linksTitle": "相关链接",
+    "linksSubtitle": "Link",
+    "linksEmpty": "相关网站将陆续添加。"
   },
   "nav": {
     "service": "服务项目",

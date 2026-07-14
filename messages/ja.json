@@ -9,7 +9,10 @@
     "question": "あなたは18歳以上ですか？",
     "enter": "18歳以上 — ENTER",
     "leave": "18歳未満 — LEAVE",
-    "note": "「18歳以上」を選択するとサイトへ進みます。"
+    "note": "「18歳以上」を選択するとサイトへ進みます。",
+    "linksTitle": "関連リンク",
+    "linksSubtitle": "Link",
+    "linksEmpty": "関連サイトは順次掲載予定です。"
   },
   "nav": {
     "service": "サービス",

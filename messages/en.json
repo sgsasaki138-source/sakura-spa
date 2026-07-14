@@ -9,7 +9,10 @@
     "question": "Are you 18 or older?",
     "enter": "18 or Older — ENTER",
     "leave": "Under 18 — LEAVE",
-    "note": "Select “18 or Older” to continue to the website."
+    "note": "Select “18 or Older” to continue to the website.",
+    "linksTitle": "Related Links",
+    "linksSubtitle": "Link",
+    "linksEmpty": "Related websites will be added soon."
   },
   "nav": {
     "service": "Services",

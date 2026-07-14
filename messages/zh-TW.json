@@ -9,7 +9,10 @@
     "question": "您已年滿18歲嗎？",
     "enter": "已滿18歲 — 進入",
     "leave": "未滿18歲 — 離開",
-    "note": "選擇「已滿18歲」即可進入網站。"
+    "note": "選擇「已滿18歲」即可進入網站。",
+    "linksTitle": "相關連結",
+    "linksSubtitle": "Link",
+    "linksEmpty": "相關網站將陸續新增。"
   },
   "nav": {
     "service": "服務項目",
