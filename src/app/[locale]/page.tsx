@@ -4,7 +4,7 @@ import { useTranslations, useLocale } from 'next-intl'
 import { useState } from 'react'
 import { Link } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
-import { LINE_CUSTOMER, LINE_RECRUIT, PHONE_TEL, PHONE_DISPLAY } from '@/lib/constants'
+import { KLOOK_OSAKA_AFFILIATE, LINE_CUSTOMER, LINE_RECRUIT, PHONE_TEL, PHONE_DISPLAY } from '@/lib/constants'
 import HeroBanner from '@/components/HeroBanner'
 import TodayTherapists from '@/components/TodayTherapists'
 
@@ -225,6 +225,28 @@ export default function HomePage() {
             </div>
             <p className="text-stone-500 text-sm pt-2 border-t border-stone-700">{t('access.note')}</p>
           </div>
+          <aside className="mt-6 rounded-2xl border border-amber-900/50 bg-gradient-to-r from-amber-950/30 to-stone-800/50 p-6 sm:p-8">
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-amber-400">
+                  {t('affiliate.eyebrow')}
+                </p>
+                <h3 className="text-xl font-light text-white">{t('affiliate.title')}</h3>
+                <p className="mt-2 max-w-xl text-sm leading-relaxed text-stone-400">
+                  {t('affiliate.description')}
+                </p>
+              </div>
+              <a
+                href={KLOOK_OSAKA_AFFILIATE}
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+                className="shrink-0 rounded-full border border-amber-700/70 px-6 py-3 text-center text-sm text-amber-200 transition-colors hover:border-amber-500 hover:bg-amber-900/30 hover:text-white"
+              >
+                {t('affiliate.cta')} <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <p className="mt-4 text-xs text-stone-600">{t('affiliate.disclosure')}</p>
+          </aside>
         </div>
       </section>
 

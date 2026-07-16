@@ -91,6 +91,13 @@
     "hours": "Hours: 12:00 PM – 5:00 AM",
     "note": "* We provide a fully mobile service to a hotel designated by us or to your requested location"
   },
+  "affiliate": {
+    "eyebrow": "Osaka Travel",
+    "title": "Make the most of your time in Osaka",
+    "description": "Discover sightseeing tickets, activities, and transportation options for your Osaka stay.",
+    "cta": "Explore Osaka on Klook",
+    "disclosure": "This is an affiliate link. We may earn a commission if you complete a booking."
+  },
   "contact": {
     "title": "Reservations & Inquiries",
     "subtitle": "Contact",
