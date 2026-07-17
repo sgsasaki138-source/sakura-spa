@@ -67,6 +67,59 @@ export async function fetchBanners(): Promise<Banner[]> {
     .sort((a, b) => (a.order || 0) - (b.order || 0))
 }
 
+// ── 求人（管理画面の「求人情報」「求人ブログ」タブが書き込むデータ）──
+export type JobItem = {
+  id: string
+  key: string
+  keyEn?: string
+  value: string
+  valueEn?: string
+}
+
+export type JobPoint = {
+  id: string
+  icon?: string
+  title: string
+  desc?: string
+}
+
+export type JobBlogPost = {
+  id: string
+  date?: string
+  title: string
+  content?: string
+  tags?: string | string[]
+  visible?: boolean
+}
+
+async function fetchValueArray<T>(docName: string): Promise<T[]> {
+  const snap = await getDoc(doc(db, 'sakuraspa', docName))
+  if (!snap.exists()) return []
+  const value = snap.data().value
+  return Array.isArray(value) ? (value as T[]) : []
+}
+
+export async function fetchJobs(): Promise<JobItem[]> {
+  return fetchValueArray<JobItem>('jobs')
+}
+
+export async function fetchJobPoints(): Promise<JobPoint[]> {
+  return fetchValueArray<JobPoint>('jobPoints')
+}
+
+export async function fetchJobBlog(): Promise<JobBlogPost[]> {
+  const list = await fetchValueArray<JobBlogPost>('jobBlog')
+  return list
+    .filter((b) => b.visible !== false)
+    .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
+}
+
+export function jobBlogTags(post: JobBlogPost): string[] {
+  const raw = post.tags
+  if (Array.isArray(raw)) return raw.map((s) => String(s).trim()).filter(Boolean)
+  return String(raw || '').split(/[、,]+/).map((s) => s.trim()).filter(Boolean)
+}
+
 export async function fetchSchedule(): Promise<ScheduleItem[]> {
   const snap = await getDoc(doc(db, 'sakuraspa', 'schedule'))
   if (!snap.exists()) return []

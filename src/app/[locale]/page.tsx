@@ -4,7 +4,7 @@ import { useTranslations, useLocale } from 'next-intl'
 import { useState } from 'react'
 import { Link } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
-import { KLOOK_OSAKA_AFFILIATE, LINE_CUSTOMER, LINE_RECRUIT, PHONE_TEL, PHONE_DISPLAY } from '@/lib/constants'
+import { KLOOK_OSAKA_AFFILIATE, LINE_CUSTOMER, PHONE_TEL, PHONE_DISPLAY } from '@/lib/constants'
 import HeroBanner from '@/components/HeroBanner'
 import TodayTherapists from '@/components/TodayTherapists'
 
@@ -279,10 +279,10 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer className="py-8 border-t border-stone-800 text-center text-stone-600 text-sm">
-        <a href={LINE_RECRUIT} target="_blank" rel="noopener noreferrer"
+        <Link href="/recruit"
           className="text-stone-500 hover:text-rose-300 transition-colors underline underline-offset-4">
           {t('footer.recruit')}
-        </a>
+        </Link>
         <p className="mt-3">{t('footer.copy')}</p>
       </footer>
     </div>
