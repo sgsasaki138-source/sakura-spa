@@ -85,7 +85,7 @@ export default function RecruitPage() {
           <h1 className="text-3xl font-light tracking-widest text-white">セラピスト募集</h1>
           <div className="w-12 h-px bg-rose-500 mx-auto mt-4" />
           <p className="text-stone-400 text-sm leading-relaxed mt-6 max-w-xl mx-auto">
-            SAKURA SPAは大阪・日本橋のインバウンド専門メンズエステです。
+            SAKURA SPAは大阪・日本橋の出張メンズエステです。
             <br className="hidden sm:block" />
             未経験の方も、掛け持ちの方も歓迎。まずはLINEでお気軽にご相談ください。
           </p>
