@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { Link } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
 import { KLOOK_OSAKA_AFFILIATE, LINE_CUSTOMER, PHONE_TEL, PHONE_DISPLAY } from '@/lib/constants'
+import { LOCAL_BUSINESS_JSONLD } from '@/lib/jsonld'
 import HeroBanner from '@/components/HeroBanner'
 import TodayTherapists from '@/components/TodayTherapists'
 
@@ -28,6 +29,11 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-stone-950 text-stone-100 font-sans">
+      {/* 構造化データ（LLMO/SEO） */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_JSONLD) }}
+      />
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-stone-950/90 backdrop-blur border-b border-stone-800">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">

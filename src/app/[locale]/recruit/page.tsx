@@ -6,6 +6,7 @@
 import { useEffect, useState } from 'react'
 import SubHeader from '@/components/SubHeader'
 import { LINE_RECRUIT } from '@/lib/constants'
+import { JOB_POSTING_JSONLD } from '@/lib/jsonld'
 import {
   fetchJobs,
   fetchJobPoints,
@@ -77,6 +78,11 @@ export default function RecruitPage() {
 
   return (
     <div className="min-h-screen bg-stone-950 text-stone-100 font-sans">
+      {/* 求人構造化データ（LLMO/SEO）。内容更新時は jsonld.ts の datePosted も更新すること */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(JOB_POSTING_JSONLD) }}
+      />
       <SubHeader />
       <main className="max-w-4xl mx-auto px-4 pt-24 pb-24">
         {/* ヒーロー */}
@@ -89,6 +95,7 @@ export default function RecruitPage() {
             <br className="hidden sm:block" />
             未経験の方も、掛け持ちの方も歓迎。まずはLINEでお気軽にご相談ください。
           </p>
+          <p className="text-stone-600 text-xs mt-3">※応募資格：18歳以上（高校生不可）</p>
           <div className="mt-8">
             <LineCta large />
           </div>

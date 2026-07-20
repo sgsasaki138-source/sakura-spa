@@ -1,0 +1,25 @@
+# robots.txt — AIクローラー許可版
+User-agent: *
+Allow: /
+
+# --- AI系クローラー（明示的に許可） ---
+# ChatGPT
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Claude
+User-agent: ClaudeBot
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Gemini / AI Overview
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://www.sakuraspa-osaka.com/sitemap.xml
