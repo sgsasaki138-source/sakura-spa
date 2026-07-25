@@ -58,10 +58,17 @@ export type Banner = {
 }
 
 export async function fetchBanners(): Promise<Banner[]> {
-  const snap = await getDoc(doc(db, 'sakuraspa', 'banners'))
-  if (!snap.exists()) return []
-  const value = snap.data().value
-  const list: Banner[] = Array.isArray(value) ? value : []
+  // バナーは1バナー1ドキュメント（sakuraspa/banners/items）。
+  // まだ移行前のデータ用に、空なら旧 sakuraspa/banners の value 配列にフォールバック。
+  let list: Banner[] = []
+  const colSnap = await getDocs(collection(db, 'sakuraspa', 'banners', 'items'))
+  if (!colSnap.empty) {
+    list = colSnap.docs.map((d) => d.data() as Banner)
+  } else {
+    const oldSnap = await getDoc(doc(db, 'sakuraspa', 'banners'))
+    const value = oldSnap.exists() ? oldSnap.data().value : []
+    list = Array.isArray(value) ? value : []
+  }
   return list
     .filter((b) => b.visible !== false && (b.pcImage || b.mobileImage))
     .sort((a, b) => (a.order || 0) - (b.order || 0))
