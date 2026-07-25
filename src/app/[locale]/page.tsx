@@ -91,42 +91,26 @@ export default function HomePage() {
         )}
       </header>
 
-      {/* Hero（上揃え＋固定ヘッダー分の余白。中身が画面より高くても大見出しがヘッダーに隠れない） */}
-      <section className="relative min-h-screen flex items-start justify-center pt-24 pb-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-stone-950 via-rose-950/30 to-stone-950" />
-        <div className="absolute inset-0 opacity-10"
-          style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, #f43f5e 0%, transparent 70%)' }} />
-        <div className="relative z-10 text-center px-4 max-w-2xl mx-auto">
-          <p className="text-rose-300 text-sm tracking-[0.3em] uppercase mb-6">{t('hero.tag')}</p>
-          <h1 className="text-6xl md:text-8xl font-thin tracking-[0.2em] text-white mb-2">{t('hero.title')}</h1>
-          <p className="text-stone-400 tracking-widest text-lg mb-10">{t('hero.subtitle')}</p>
-          <p className="text-2xl md:text-3xl font-light text-stone-200 mb-6 whitespace-pre-line leading-relaxed">
-            {t('hero.catch')}
-          </p>
-          <p className="text-stone-400 mb-8 leading-relaxed">{t('hero.desc')}</p>
-          <HeroBanner />
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      {/* Hero: メニュー直下にフル幅バナー → その下に予約ボタン（大見出しテキストはバナー画像に集約） */}
+      <section className="relative bg-stone-950 pt-14 md:pt-16">
+        <HeroBanner />
+        <div className="px-4 py-8 md:py-10">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-2xl mx-auto">
             <a href={LINE_CUSTOMER} target="_blank" rel="noopener noreferrer"
-              className="bg-[#06C755] hover:bg-[#05b34c] text-white px-8 py-3 rounded-full text-lg transition-all hover:shadow-lg hover:shadow-green-900">
+              className="bg-[#06C755] hover:bg-[#05b34c] text-white px-8 py-3 rounded-full text-lg text-center transition-all hover:shadow-lg hover:shadow-green-900">
               {t('hero.cta')}
             </a>
             <a href="#price"
-              className="border border-stone-600 hover:border-rose-400 text-stone-300 hover:text-rose-300 px-8 py-3 rounded-full text-lg transition-all">
+              className="border border-stone-600 hover:border-rose-400 text-stone-300 hover:text-rose-300 px-8 py-3 rounded-full text-lg text-center transition-all">
               {t('hero.sub')}
             </a>
             {locale === 'ja' && (
               <a href={PHONE_TEL}
-                className="border border-stone-600 hover:border-rose-400 text-stone-300 hover:text-rose-300 px-8 py-3 rounded-full text-lg transition-all">
+                className="border border-stone-600 hover:border-rose-400 text-stone-300 hover:text-rose-300 px-8 py-3 rounded-full text-lg text-center transition-all">
                 📞 {t('hero.tel')}
               </a>
             )}
           </div>
-        </div>
-        {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-          <svg className="w-6 h-6 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M19 9l-7 7-7-7" />
-          </svg>
         </div>
       </section>
 
