@@ -42,14 +42,17 @@ export default function HeroBanner() {
   }
 
   return (
-    <div className="w-full max-w-md mx-auto mb-8">
-      <div className="relative overflow-hidden rounded-2xl border border-stone-800 bg-stone-900 aspect-square">
+    <div className="w-full max-w-md md:max-w-5xl mx-auto mb-8">
+      {/* スマホ=正方形（mobileImage）／PC=横長（pcImage）。<picture>で画面幅により自動切替 */}
+      <div className="relative overflow-hidden rounded-2xl border border-stone-800 bg-stone-900 aspect-square md:aspect-[1920/500]">
         {banners.map((b, i) => {
-          const img = b.mobileImage || b.pcImage
           const href = resolveLink(b.cta1Link, locale)
           const inner = (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={img || ''} alt={b.title || ''} className="w-full h-full object-cover" />
+            <picture className="block w-full h-full">
+              {b.pcImage && <source media="(min-width:768px)" srcSet={b.pcImage} />}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={b.mobileImage || b.pcImage || ''} alt={b.title || ''} className="w-full h-full object-cover" />
+            </picture>
           )
           return (
             <div key={b.id}
