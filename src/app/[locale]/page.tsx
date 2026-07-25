@@ -91,8 +91,8 @@ export default function HomePage() {
         )}
       </header>
 
-      {/* Hero */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Hero（上揃え＋固定ヘッダー分の余白。中身が画面より高くても大見出しがヘッダーに隠れない） */}
+      <section className="relative min-h-screen flex items-start justify-center pt-24 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-stone-950 via-rose-950/30 to-stone-950" />
         <div className="absolute inset-0 opacity-10"
           style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, #f43f5e 0%, transparent 70%)' }} />
