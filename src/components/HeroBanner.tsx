@@ -43,7 +43,8 @@ export default function HeroBanner() {
 
   return (
     // メニュー直下のフル幅ヒーローバナー。スマホ=正方形／PC=横長を <picture> で自動切替
-    <div className="relative w-full overflow-hidden bg-stone-900 aspect-square md:aspect-[1920/500]">
+    // PCは1900:1000。画像もこの比率で作ること（比率がずれると object-cover で上下か左右が切れる）
+    <div className="relative w-full overflow-hidden bg-stone-900 aspect-square md:aspect-[1900/1000]">
       {banners.map((b, i) => {
         const href = resolveLink(b.cta1Link, locale)
         const inner = (
