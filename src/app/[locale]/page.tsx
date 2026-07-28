@@ -44,6 +44,7 @@ export default function HomePage() {
             <Link href="/cast" className="hover:text-rose-300 transition-colors">{t('nav.cast')}</Link>
             <Link href="/schedule" className="hover:text-rose-300 transition-colors">{t('nav.schedule')}</Link>
             <a href="#access" className="hover:text-rose-300 transition-colors">{t('nav.access')}</a>
+            <Link href="/faq" className="hover:text-rose-300 transition-colors">{t('nav.faq')}</Link>
             <a href="#contact" className="hover:text-rose-300 transition-colors">{t('nav.contact')}</a>
             <a href={LINE_CUSTOMER} target="_blank" rel="noopener noreferrer" className="bg-[#06C755] hover:bg-[#05b34c] text-white px-4 py-1.5 rounded-full transition-colors">{t('nav.reserve')}</a>
           </nav>
@@ -74,6 +75,7 @@ export default function HomePage() {
             <Link href="/cast" className="text-stone-300 hover:text-rose-300 transition-colors">{t('nav.cast')}</Link>
             <Link href="/schedule" className="text-stone-300 hover:text-rose-300 transition-colors">{t('nav.schedule')}</Link>
             <a href="#access" onClick={() => setMenuOpen(false)} className="text-stone-300 hover:text-rose-300 transition-colors">{t('nav.access')}</a>
+            <Link href="/faq" className="text-stone-300 hover:text-rose-300 transition-colors">{t('nav.faq')}</Link>
             <a href="#contact" onClick={() => setMenuOpen(false)} className="text-stone-300 hover:text-rose-300 transition-colors">{t('nav.contact')}</a>
             <a href={LINE_CUSTOMER} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}
               className="bg-[#06C755] text-white text-center px-4 py-2 rounded-full">
@@ -111,6 +113,15 @@ export default function HomePage() {
               </a>
             )}
           </div>
+        </div>
+
+        {/* 冒頭の即答文（LLMO）。AI検索はページ上部の1段落をそのまま引用するため、
+            店名・エリア・営業時間・料金・支払い・予約方法・年齢制限を1文にまとめて置いている。
+            内容を変えたら public/llms.txt・jsonld.ts・FAQページも必ず揃えること。 */}
+        <div className="px-4 pb-10">
+          <p className="max-w-3xl mx-auto text-stone-400 text-sm leading-loose text-center">
+            {t('summary')}
+          </p>
         </div>
       </section>
 

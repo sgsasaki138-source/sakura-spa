@@ -21,7 +21,8 @@
     "schedule": "Schedule",
     "access": "Access",
     "contact": "Contact",
-    "reserve": "Book on LINE"
+    "reserve": "Book on LINE",
+    "faq": "FAQ"
   },
   "cast": {
     "title": "Therapists",
@@ -54,9 +55,18 @@
     "title": "Services",
     "subtitle": "Service",
     "items": [
-      { "name": "Luxury Lymphatic Massage", "desc": "An authentic lymphatic treatment with a generous use of oil — melting away fatigue and tension from head to toe." },
-      { "name": "Mobile Service", "desc": "Our experienced therapists come directly to your hotel or home, so you can relax without leaving your room." },
-      { "name": "By Appointment Only", "desc": "Completely private, reservation-only service. Book easily via LINE." }
+      {
+        "name": "Luxury Lymphatic Massage",
+        "desc": "An authentic lymphatic treatment with a generous use of oil — melting away fatigue and tension from head to toe."
+      },
+      {
+        "name": "Mobile Service",
+        "desc": "Our experienced therapists come directly to your hotel or home, so you can relax without leaving your room."
+      },
+      {
+        "name": "By Appointment Only",
+        "desc": "Completely private, reservation-only service. Book easily via LINE."
+      }
     ]
   },
   "price": {
@@ -65,22 +75,55 @@
     "course": "Luxury Lymphatic Course",
     "note": "* All prices include tax",
     "plans": [
-      { "min": "60 min", "price": "¥14,000" },
-      { "min": "90 min", "price": "¥16,000" },
-      { "min": "120 min", "price": "¥20,000" },
-      { "min": "150 min", "price": "¥26,000" },
-      { "min": "180 min", "price": "¥32,000" }
+      {
+        "min": "60 min",
+        "price": "¥14,000"
+      },
+      {
+        "min": "90 min",
+        "price": "¥16,000"
+      },
+      {
+        "min": "120 min",
+        "price": "¥20,000"
+      },
+      {
+        "min": "150 min",
+        "price": "¥26,000"
+      },
+      {
+        "min": "180 min",
+        "price": "¥32,000"
+      }
     ],
     "extras": [
-      { "label": "Extension (30 min)", "price": "¥6,000" },
-      { "label": "Therapist Request", "price": "¥1,000" },
-      { "label": "Repeat Request", "price": "¥2,000" }
+      {
+        "label": "Extension (30 min)",
+        "price": "¥6,000"
+      },
+      {
+        "label": "Therapist Request",
+        "price": "¥1,000"
+      },
+      {
+        "label": "Repeat Request",
+        "price": "¥2,000"
+      }
     ],
     "optionsTitle": "Options",
     "options": [
-      { "label": "Cosplay", "price": "¥2,000" },
-      { "label": "Extra Oil", "price": "¥3,000" },
-      { "label": "Premium Lotion", "price": "¥3,000" }
+      {
+        "label": "Cosplay",
+        "price": "¥2,000"
+      },
+      {
+        "label": "Extra Oil",
+        "price": "¥3,000"
+      },
+      {
+        "label": "Premium Lotion",
+        "price": "¥3,000"
+      }
     ]
   },
   "access": {
@@ -108,5 +151,62 @@
   "footer": {
     "recruit": "Therapist Recruitment",
     "copy": "© 2026 SAKURA SPA Nipponbashi. All rights reserved."
+  },
+  "summary": "SAKURA SPA Nipponbashi is an outcall men’s esthetic (massage) service in the Nipponbashi area of Osaka, Japan. We have no shop: a female therapist visits you at a hotel we arrange, or at a location of your choice. Open 12:00 to 05:00 the next morning, by reservation only, though same-day bookings are accepted when a therapist is free. The Luxury Lymph course costs ¥14,000 for 60 minutes up to ¥32,000 for 180 minutes (tax included), plus ¥3,000 for the hotel or travel. Payment is cash only. Book anytime on LINE, where we assist in English, Chinese and Korean. Guests must be 18 or older.",
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "FAQ",
+    "lead": "The questions guests ask us most often, answered. Anything else, just ask on LINE.",
+    "cta": "Ask us on LINE",
+    "items": [
+      {
+        "q": "What kind of service is SAKURA SPA?",
+        "a": "An outcall men’s esthetic service in the Nipponbashi area of Osaka. We have no shop. A female therapist visits a hotel we arrange, or a location of your choice, and gives a luxury oil lymphatic treatment. We do not offer any sexual services."
+      },
+      {
+        "q": "What are your opening hours?",
+        "a": "12:00 until 05:00 the following morning. Reservations and enquiries on LINE are accepted 24 hours a day."
+      },
+      {
+        "q": "How much does it cost?",
+        "a": "The Luxury Lymph course is ¥14,000 for 60 min, ¥16,000 for 90 min, ¥20,000 for 120 min, ¥26,000 for 150 min and ¥32,000 for 180 min (tax included). Extensions are ¥6,000 per 30 min. Nomination is ¥1,000, repeat nomination ¥2,000. A hotel or travel charge of ¥3,000 is added. There is no membership fee."
+      },
+      {
+        "q": "How can I pay?",
+        "a": "Cash only. We cannot accept credit cards, e-money or QR payments. Please pay the therapist directly on the day."
+      },
+      {
+        "q": "Can I book for today?",
+        "a": "Yes. Same-day and last-minute bookings are accepted whenever a therapist is free. Message us on LINE with the time you have in mind."
+      },
+      {
+        "q": "How do I make a reservation?",
+        "a": "On LINE, 24 hours a day. Tell us your preferred date and time, course length, and where you would like the treatment — including whether you would like us to arrange the hotel. Japanese speakers can also book by phone."
+      },
+      {
+        "q": "Do I need to book the hotel myself?",
+        "a": "Normally we arrange the hotel for you. We can also visit your home or the hotel you are already staying in — just ask on LINE. We serve the Naniwa and Chuo wards of Osaka and the surrounding Nipponbashi area."
+      },
+      {
+        "q": "What is your cancellation policy?",
+        "a": "Please tell us on LINE as early as you can. There is no charge if you cancel before the therapist departs. Once she has left for you, a cancellation fee applies."
+      },
+      {
+        "q": "Can I use the service if I don’t speak Japanese?",
+        "a": "Yes. We handle LINE bookings in English, Chinese (simplified and traditional) and Korean, and this site is available in five languages. Phone bookings are in Japanese only."
+      },
+      {
+        "q": "What do I need to prepare?",
+        "a": "Nothing in particular. When we arrange the hotel, the towels and amenities in the room are yours to use. We recommend taking a shower before the treatment."
+      },
+      {
+        "q": "Can I choose my therapist?",
+        "a": "Yes. Browse the therapist list and the schedule, and name the therapist you would like. Nomination is ¥1,000, repeat nomination ¥2,000."
+      },
+      {
+        "q": "Is there an age limit?",
+        "a": "You must be 18 or older to use our service. We may ask you to confirm your age."
+      }
+    ]
   }
 }

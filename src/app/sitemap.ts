@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 
 const BASE = 'https://www.sakuraspa-osaka.com'
 const LOCALES = ['ja', 'en', 'zh', 'zh-TW', 'ko']
-const ROUTES = ['', '/cast', '/schedule', '/recruit']
+const ROUTES = ['', '/cast', '/schedule', '/faq', '/recruit']
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return LOCALES.flatMap((locale) =>

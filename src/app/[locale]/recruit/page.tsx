@@ -6,7 +6,7 @@
 import { useEffect, useState } from 'react'
 import SubHeader from '@/components/SubHeader'
 import { LINE_RECRUIT } from '@/lib/constants'
-import { JOB_POSTING_JSONLD } from '@/lib/jsonld'
+import { JOB_POSTING_JSONLD, RECRUIT_FAQ, faqPageJsonLd } from '@/lib/jsonld'
 import {
   fetchJobs,
   fetchJobPoints,
@@ -83,6 +83,11 @@ export default function RecruitPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(JOB_POSTING_JSONLD) }}
       />
+      {/* 求人FAQの構造化データ。表示（下の「よくある質問」）と同じ RECRUIT_FAQ から生成 */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageJsonLd(RECRUIT_FAQ)) }}
+      />
       <SubHeader />
       <main className="max-w-4xl mx-auto px-4 pt-24 pb-24">
         {/* ヒーロー */}
@@ -158,6 +163,22 @@ export default function RecruitPage() {
             </div>
           </section>
         )}
+
+        {/* よくある質問（応募者向け） */}
+        <section className="mb-14">
+          <div className="text-center mb-6">
+            <h2 className="text-xl font-light tracking-widest text-white">よくある質問</h2>
+            <div className="w-8 h-px bg-rose-500 mx-auto mt-3" />
+          </div>
+          <dl className="space-y-3">
+            {RECRUIT_FAQ.map((item, i) => (
+              <div key={i} className="bg-stone-900 border border-stone-800 rounded-2xl px-5 py-4">
+                <dt className="text-white text-sm sm:text-base leading-relaxed">Q. {item.q}</dt>
+                <dd className="text-stone-300 text-sm leading-relaxed mt-2 pt-2 border-t border-stone-800">{item.a}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
 
         {/* 締めCTA */}
         <section className="text-center bg-stone-900 border border-stone-800 rounded-2xl px-6 py-10">
